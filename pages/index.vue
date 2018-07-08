@@ -1,6 +1,6 @@
 <template>
   <section>
-    <h1 class="header">Nuxt TypeScript Starter</h1>
+    <h1 class="header">5chコピー作ろう！</h1>
     <div class="cards">
       <Card v-for="person in people" :key="person.id" :person="person"></Card>
     </div>
