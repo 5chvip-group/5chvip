@@ -4,15 +4,18 @@
   "private": true,
   "dependencies": {
     "@nuxtjs/axios": "^5.0.0",
+    "node-sass": "^4.9.1",
     "nuxt": "^1.3.0",
     "nuxt-property-decorator": "^1.2.0",
+    "sass-loader": "^7.0.3",
     "vuex-class": "^0.3.0"
   },
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate"
+    "generate": "nuxt generate",
+    "lint": "eslint --fix --ext .js,.vue --ignore-path .gitignore ."
   },
   "devDependencies": {
     "@types/node": "^9.4.6",
