@@ -16,7 +16,7 @@ export default class Card extends Vue {
   @Prop() person
 }
 </script>
-<style scoped>
+<style lang="scss" scoped>
 .card {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana,
     sans-serif;

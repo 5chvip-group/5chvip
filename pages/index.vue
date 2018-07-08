@@ -24,10 +24,13 @@ export default class extends Vue {
   @State people
 }
 </script>
-<style scoped>
+<style lang="scss" scoped>
+// scssテスト
+$size: 500%;
 .header {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana,
     sans-serif;
+  font-size: $size;
 }
 
 .cards {
