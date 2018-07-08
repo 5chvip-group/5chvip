@@ -1,3 +1,10 @@
+# プログラミングでチーム開発したい
+- https://hebi.5ch.net/test/read.cgi/news4vip/1530962450/l50
+  - １スレ目
+- https://hebi.5ch.net/test/read.cgi/news4vip/1531012153/l50
+  - ２スレ目
+
+
 # 5chvip
 
 > Nuxt.js TypeScript project
