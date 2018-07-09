@@ -1,6 +1,6 @@
 <template>
   <li>
-    <router-link :to="{ name: 'threads-id', params: { id: thread.id } }">{{ thread.title }}</router-link>
+    <router-link :to="{ name: 'boards-boardId-threads-threadId', params: { threadId: thread.id } }">{{ thread.title }}</router-link>
   </li>
 </template>
 <script lang="ts">
