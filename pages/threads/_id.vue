@@ -1,6 +1,6 @@
 <template>
   <section>
-    <h1 class="header">{{ title }}</h1>
+    <h1 class="header">{{ thread.title }}</h1>
   </section>
 </template>
 
@@ -9,9 +9,11 @@ import axios from 'axios'
 
 export default {
   async asyncData({ req, params }) {
-    return axios
-      .get('http://localhost:3000/threads.json')
-      .then(json => json.data.find(thread => thread.id == params.id));
+    const json: any = await axios.get('http://localhost:3000/threads.json');
+    const threads: any[] = json.data;
+    // thread クラスを作って型を利用したい
+    const thread: any = threads.find(thread => thread.id == params.id)
+    return { thread: thread }
   }
 }
 </script>
