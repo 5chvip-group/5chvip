@@ -1,21 +1,24 @@
 <template>
   <section>
-    <h1 class="header">板トップページ</h1>
+    <h1 class="header">{{ getBoardById($route.params.boardId).name }}</h1>
     自治がうんたらとか
+    <router-link :to="{ name: 'boards-boardId-threads'}">スレッド一覧</router-link>
   </section>
 </template>
 
 <script lang="ts">
 import {
-  Component,
-  Vue
+  Vue,
+  Component
 } from "nuxt-property-decorator"
 
-@Component({
-  components: {
-  }
-})
+import {
+  Getter,
+} from "vuex-class"
+
+@Component({})
 export default class extends Vue {
+  @Getter getBoardById
 }
 </script>
 <style lang="scss" scoped>

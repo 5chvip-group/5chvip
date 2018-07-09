@@ -1,0 +1,5 @@
+[
+  {"threadId": 1, "author": "NO NAME", "email": "noname@example.com", "body": "1"},
+  {"threadId": 1, "author": "NO NAME", "email": "noname@example.com", "body": "2get"},
+  {"threadId": 1, "author": "NO NAME", "email": "noname@example.com", "body": "<script>alert('hoge')</script>"}
+]

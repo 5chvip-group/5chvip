@@ -1,7 +1,8 @@
 [
-  {"id": 1, "title": "title-1"},
-  {"id": 2, "title": "title-2"},
-  {"id": 3, "title": "title-3"},
-  {"id": 4, "title": "title-4"}
+  {"id": 1, "boardId": 1, "title": "board1-thread1"},
+  {"id": 2, "boardId": 1, "title": "board1-thread2"},
+  {"id": 3, "boardId": 2, "title": "board2-thread1"},
+  {"id": 4, "boardId": 2, "title": "board2-thread2"},
+  {"id": 5, "boardId": 3, "title": "board3-thread1"},
+  {"id": 6, "boardId": 3, "title": "board3-thread2"}
 ]
-
