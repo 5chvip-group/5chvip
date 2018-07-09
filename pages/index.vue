@@ -21,7 +21,7 @@ import Card from "~/components/Card.vue"
   }
 })
 export default class extends Vue {
-  @State threads
+  @State people
 }
 </script>
 <style lang="scss" scoped>
