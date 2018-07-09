@@ -1,11 +1,16 @@
 export const state = () => ({
-  people: []
+  people: [],
+  threads: []
 })
 
 export const mutations = {
   setPeople(state, people) {
     state.people = people
-  }
+  },
+
+  setThreads(state, threads) {
+    state.threads = threads
+  },
 }
 
 export const actions = {
@@ -13,6 +18,11 @@ export const actions = {
     const people = await app.$axios.$get(
       "./random-data.json"
     )
-    commit("setPeople", people.slice(0, 10))
+    commit("setPeople", people.slice(0, 2))
+
+    const threads = await app.$axios.$get(
+      "./threads.json"
+    )
+    commit("setThreads", threads)
   }
 }
