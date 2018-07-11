@@ -4,7 +4,7 @@
     本家って雑に並びすぎだよねw
     <h2>スレッドいちらん</h2>
     <ul>
-      <Thread v-for="thread in threads" :key="thread.id" :thread="thread"></Thread>
+      <Thread v-for="thread in getThreadsByBoardId($route.params.boardId)" :key="thread.id" :thread="thread"></Thread>
     </ul>
   </section>
 </template>
@@ -14,7 +14,7 @@ import {
   Component,
   Vue
 } from "nuxt-property-decorator"
-import { State } from "vuex-class"
+import { Getter } from "vuex-class"
 import Thread from "~/components/Thread.vue"
 
 @Component({
@@ -23,7 +23,7 @@ import Thread from "~/components/Thread.vue"
   }
 })
 export default class extends Vue {
-  @State threads
+  @Getter getThreadsByBoardId
 }
 </script>
 <style lang="scss" scoped>

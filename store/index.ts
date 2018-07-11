@@ -1,28 +1,57 @@
-export const state = () => ({
-  people: [],
-  threads: []
-})
+import { Board, Thread, Response } from '~/entity'
+
+
+class State {
+  boards: Board[];
+  threads: Thread[];
+  responses: Response[];
+}
+
+export const state = () => (new State())
 
 export const mutations = {
-  setPeople(state, people) {
-    state.people = people
+  setBoards(state: State, boards: Board[]) {
+    state.boards = boards
   },
 
-  setThreads(state, threads) {
+  setThreads(state: State, threads: Thread[]) {
     state.threads = threads
   },
+
+  setResponses(state: State, responses: Response[]) {
+    state.responses = responses;
+  },
+}
+
+export const getters = {
+  getBoardById: (state: State) => (id) => {
+    return state.boards.find(board => board.id == id)
+  },
+
+  getThreadsByBoardId: (state: State) => (id) => {
+    return state.threads.filter(thread => thread.boardId == id)
+  },
+
+  getThreadById: (state: State) => (id) => {
+    return state.threads.find(thread => thread.id == id)
+  },
+
+  getResponsesByThreadId: (state: State) => (id) => {
+    return state.responses.filter(response => response.threadId == id)
+  }
 }
 
 export const actions = {
   async nuxtServerInit({ commit }, { app }) {
-    const people = await app.$axios.$get(
-      "./random-data.json"
-    )
-    commit("setPeople", people.slice(0, 2))
+    const boards: Board[] = await app.$axios.$get('./boards.json')
+    commit('setBoards', boards)
 
-    const threads = await app.$axios.$get(
-      "./threads.json"
-    )
-    commit("setThreads", threads)
+    // TODO: Threads data fetching will be moved to the page in the future.
+    const threads: Thread[] = await app.$axios.$get('./threads.json')
+    commit('setThreads', threads)
+
+    // TODO: Response data fetching will be moved to the page in the future.
+    const responses: Response[] = await app.$axios.$get('./responses.json')
+    commit('setResponses', responses)
   }
 }
