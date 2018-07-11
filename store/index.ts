@@ -1,20 +1,5 @@
-export class Board {
-  id: string;
-  name: string;
-}
+import { Board, Thread, Response } from '~/entity'
 
-export class Thread {
-  id: string;
-  boardId: string;
-  title: string;
-}
-
-export class Response {
-  threadId: string;
-  author: string;
-  email: string;
-  body: string;
-}
 
 class State {
   boards: Board[];
@@ -59,12 +44,14 @@ export const getters = {
 export const actions = {
   async nuxtServerInit({ commit }, { app }) {
     const boards: Board[] = await app.$axios.$get('./boards.json')
-    commit("setBoards", boards)
+    commit('setBoards', boards)
 
+    // TODO: Threads data fetching will be moved to the page in the future.
     const threads: Thread[] = await app.$axios.$get('./threads.json')
-    commit("setThreads", threads)
+    commit('setThreads', threads)
 
+    // TODO: Response data fetching will be moved to the page in the future.
     const responses: Response[] = await app.$axios.$get('./responses.json')
-    commit("setResponses", responses)
+    commit('setResponses', responses)
   }
 }
