@@ -1,23 +1,39 @@
 <template>
   <section>
-    <h1 class="header">{{ getThreadById($route.params.threadId).title }}</h1>
+    <h1 class="header">{{ $store.getters.getThreadById($route.params.threadId).title }}</h1>
     めざせ1000レス
     <ul>
-      <li v-for="response in getResponsesByThreadId($route.params.threadId)">{{ response.body }}</li>
+      <li v-for="response in responses">{{ response.body }}</li>
     </ul>
   </section>
 </template>
 
 <script lang="ts">
-import {
-  Component,
-  Vue
-} from "nuxt-property-decorator"
-import { Getter, State } from "vuex-class"
+import { Response } from "~/entity";
+import firebase from '~/plugins/firebase'
 
-@Component({})
-export default class extends Vue {
-  @Getter getThreadById
-  @Getter getResponsesByThreadId
+export default {
+  data () {
+    return {
+      responses: []
+    }
+  },
+  created () {
+    this.listen();
+  },
+  methods: {
+    listen () {
+      const threadId = this.$route.params.threadId
+      firebase.database().ref(`/responses/thread${threadId}`).on("value", (snapshot) => {
+        if (snapshot != null) {
+          const responseObjects: Object = snapshot.val()
+          const responses: Response[] = Object.keys(responseObjects).map((key) => {
+            return Response.comvertToResponseModel(responseObjects[key], key);
+          }) as Response[]
+          this.responses = responses
+        }
+      });
+    }
+  }
 }
 </script>

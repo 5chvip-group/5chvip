@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@nuxtjs/axios": "^5.0.0",
+    "firebase": "^5.2.0",
     "node-sass": "^4.9.1",
     "nuxt": "^1.3.0",
     "nuxt-property-decorator": "^1.2.0",
