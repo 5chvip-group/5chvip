@@ -23,16 +23,18 @@ export default {
   },
   methods: {
     listen () {
-      const threadId = this.$route.params.threadId
-      firebase.database().ref(`/responses/thread${threadId}`).on("value", (snapshot) => {
-        if (snapshot != null) {
-          const responseObjects: Object = snapshot.val()
-          const responses: Response[] = Object.keys(responseObjects).map((key) => {
-            return Response.comvertToResponseModel(responseObjects[key], key);
-          }) as Response[]
-          this.responses = responses
-        }
-      });
+      // const boardId = this.$route.params.boardId
+      // const threadId = this.$route.params.threadId
+      const boardId = 'e0VynIX6fezdCiYav6f0'
+      const threadId = '4PkfuM9eNNjzER6uNn4z'
+      const query = firebase.firestore().collection('boards').doc(boardId).collection('threads').doc(threadId).collection('responses').orderBy('createAt')
+      query.onSnapshot(querySnapshot => {
+        const responses: Response[] = []
+        querySnapshot.forEach(doc => {
+          responses.push(doc.data() as Response)
+        });
+        this.responses = responses
+      })
     }
   }
 }
