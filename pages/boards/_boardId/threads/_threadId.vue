@@ -4,6 +4,7 @@
     めざせ1000レス
     <ul>
       <li v-for="response in $store.getters.getResponsesByThreadId($route.params.threadId)">{{ response.body }}</li>
+      <!-- <li v-for="response in responses">{{ response.body }}</li> -->
     </ul>
   </section>
 </template>
