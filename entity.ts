@@ -10,9 +10,10 @@ export class Thread {
 }
 
 export class Response {
-  createAt: Date;
+  threadId: string;
   author: string;
   email: string;
   body: string;
+  createAt: Date;
 }
 
