@@ -5,6 +5,7 @@
     <ul>
       <li v-for="response in $store.getters.getResponsesByThreadId($route.params.threadId)">{{ response.body }}</li>
       <!-- <li v-for="response in responses">{{ response.body }}</li> -->
+      <ResForm :threadId="$route.params.threadId"></ResForm>
     </ul>
   </section>
 </template>
@@ -15,7 +16,13 @@ import {
   Vue
 } from "nuxt-property-decorator"
 import { Getter, State } from "vuex-class"
-@Component({})
+import ResForm from '~/components/ResForm.vue'
+
+@Component({
+  components: {
+    ResForm
+  }
+})
 export default class extends Vue {
   @Getter getThreadById
   @Getter getResponsesByThreadId
