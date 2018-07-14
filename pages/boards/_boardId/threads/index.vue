@@ -6,6 +6,7 @@
     <ul>
       <Thread v-for="thread in getThreadsByBoardId($route.params.boardId)" :key="thread.id" :thread="thread"></Thread>
     </ul>
+    <ThreadForm :boardId="$route.params.boardId"></ThreadForm>
   </section>
 </template>
 
@@ -16,10 +17,12 @@ import {
 } from "nuxt-property-decorator"
 import { Getter } from "vuex-class"
 import Thread from "~/components/Thread.vue"
+import ThreadForm from '~/components/ThreadForm.vue'
 
 @Component({
   components: {
     Thread,
+    ThreadForm
   }
 })
 export default class extends Vue {
