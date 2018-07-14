@@ -10,7 +10,6 @@ export class Thread {
 }
 
 export class Response {
-  threadId: string;
   author: string;
   email: string;
   body: string;

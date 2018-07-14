@@ -35,10 +35,6 @@ export const getters = {
   getThreadById: (state: State) => (id) => {
     return state.threads.find(thread => thread.id == id)
   },
-
-  getResponsesByThreadId: (state: State) => (id) => {
-    return state.responses.filter(response => response.threadId == id)
-  }
 }
 
 export const actions = {
@@ -49,9 +45,5 @@ export const actions = {
     // TODO: Threads data fetching will be moved to the page in the future.
     const threads: Thread[] = await app.$axios.$get('./threads.json')
     commit('setThreads', threads)
-
-    // TODO: Response data fetching will be moved to the page in the future.
-    const responses: Response[] = await app.$axios.$get('./responses.json')
-    commit('setResponses', responses)
   }
 }
