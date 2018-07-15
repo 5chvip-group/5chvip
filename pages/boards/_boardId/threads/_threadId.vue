@@ -44,12 +44,9 @@ export default class extends Vue {
     // const threadId = this.$route.params.threadId
     const boardId = 'e0VynIX6fezdCiYav6f0'
     const threadId = '4PkfuM9eNNjzER6uNn4z'
-    const query = firebase.firestore().collection('boards').doc(boardId).collection('threads').doc(threadId).collection('responses').orderBy('createAt')
-    query.onSnapshot(querySnapshot => {
-      const responses: Response[] = []
-      querySnapshot.forEach(doc => {
-        responses.push(doc.data() as Response)
-      });
+    const self = this
+
+    Firestore.setResponsesRealTime(boardId, threadId, (responses)　=> {
       this.responses = responses
     })
   }
