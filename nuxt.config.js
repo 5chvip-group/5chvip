@@ -22,7 +22,13 @@ module.exports = {
   env: {
     baseUrl:
       process.env.BASE_URL ||
-      `http://${host}:${port}`
+      `http://${host}:${port}`,
+      APIKEY: "",
+      AUTHDOMAIN: "",
+      DATABASEURL: "",
+      PROJECTID: "",
+      STORAGEBUCKET: "",
+      MESSAGINGSENDERID: ""
   },
   head: {
     title: "5chこぽいーを作ろう",
