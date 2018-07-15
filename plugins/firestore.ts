@@ -1,4 +1,4 @@
-import { Response } from './../entity';
+import { Thread, Response } from '~/entity';
 import firebase from './firebase'
 
 export class Firestore {
@@ -14,5 +14,12 @@ export class Firestore {
       const responses: Response[] = querySnapshot.docs.map(doc => doc.data() as Response)
       callback(responses)
     })
+  }
+  // threadId だけで取得できるようにしたいがそのためにはデータ構造の変更が必要？
+  static async getThread(boardId, threadId): Promise<Thread> {
+    const query = firebase.firestore().collection('boards').doc(boardId).collection('threads').doc(threadId)
+    const doc = await query.get()
+    const thread: Thread = doc.data() as Thread
+    return thread;
   }
 }
