@@ -16,7 +16,8 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
-    "lint": "eslint --fix --ext .js,.vue --ignore-path .gitignore ."
+    "lint": "eslint --fix --ext .js,.vue --ignore-path .gitignore .",
+    "db:seed": "node ./db-seed.js"
   },
   "devDependencies": {
     "@types/node": "^9.4.6",

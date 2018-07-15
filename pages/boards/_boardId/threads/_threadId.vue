@@ -44,7 +44,6 @@ export default class extends Vue {
     // const threadId = this.$route.params.threadId
     const boardId = 'e0VynIX6fezdCiYav6f0'
     const threadId = '4PkfuM9eNNjzER6uNn4z'
-    const self = this
 
     Firestore.setResponsesRealTime(boardId, threadId, (responses)　=> {
       this.responses = responses
