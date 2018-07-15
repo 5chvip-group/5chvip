@@ -33,4 +33,15 @@ export class Firestore {
     const thread: Thread = doc.data() as Thread
     return thread;
   }
+
+  static async createRsponse(response: Response, threadId, boardId) {
+    const query = firebase.firestore().collection('boards').doc(boardId).collection('threads').doc(threadId).collection('responses')
+    // TODO author は board によってデフォルトを変える
+    await query.add({
+      author: response.author || '名無しさん',
+      email: response.email,
+      body: response.body,
+      createAt: firebase.firestore.FieldValue.serverTimestamp()
+    })
+  }
 }

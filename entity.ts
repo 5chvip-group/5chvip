@@ -12,7 +12,7 @@ export class Thread {
 export class Response {
   threadId: string;
   author: string;
-  email: string;
+  email: string = '';
   body: string;
   createAt: Date;
 }

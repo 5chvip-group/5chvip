@@ -4,7 +4,7 @@
     めざせ1000レス
     <ul>
       <li v-for="response in responses">{{ response.body }}</li>
-      <ResForm :threadId="$route.params.threadId"></ResForm>
+      <ResForm :boardId="$route.params.boardId" :threadId="$route.params.threadId"></ResForm>
     </ul>
   </section>
 </template>

@@ -21,16 +21,19 @@ import {
 } from "nuxt-property-decorator"
 import { Action } from "vuex-class"
 import { Response } from '~/entity'
+import { Firestore } from "~/plugins/firestore";
 
 @Component({})
 export default class ResForm extends Vue {
   response: Response = new Response()
 
   @Prop() threadId
+  @Prop() boardId
 
-  onSubmit() {
-    this.response.threadId = this.threadId
+  async onSubmit() {
     // 書き込み
+    await Firestore.createRsponse(this.response, this.threadId, this.boardId)
+    this.response.body = ''
   }
 }
 </script>
