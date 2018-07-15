@@ -1,4 +1,5 @@
 import { Board, Thread, Response } from '~/entity'
+import { Firestore } from '~/plugins/firestore'
 
 
 class State {
@@ -35,7 +36,7 @@ export const getters = {
 
 export const actions = {
   async nuxtServerInit({ commit }, { app }) {
-    const boards: Board[] = await app.$axios.$get('./boards.json')
+    const boards: Board[] = await Firestore.getBoards()
     commit('setBoards', boards)
 
     // TODO: Threads data fetching will be moved to the page in the future.

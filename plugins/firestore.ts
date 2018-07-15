@@ -1,7 +1,18 @@
-import { Thread, Response } from '~/entity';
+import { Thread, Response, Board } from '~/entity';
 import firebase from './firebase'
 
 export class Firestore {
+  static async getBoards(): Promise<Board[]> {
+    const query = firebase.firestore().collection('boards')
+    const snapshot = await query.get()
+    const boards: Board[] = snapshot.docs
+                              .map((doc) => {
+                                let board = doc.data() as Board
+                                board.id = doc.id
+                                return board
+                              })
+    return boards;
+  }
   static async getResponses(boardId: string, threadId: string): Promise<Response[]> {
     const query = firebase.firestore().collection('boards').doc(boardId).collection('threads').doc(threadId).collection('responses').orderBy('createAt')
     const snapshot = await query.get()
