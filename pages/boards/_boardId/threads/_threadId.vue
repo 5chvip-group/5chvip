@@ -18,6 +18,7 @@ import { Getter, State } from "vuex-class"
 import ResForm from '~/components/ResForm.vue'
 import { Response } from "~/entity";
 import firebase from '~/plugins/firebase'
+import { Firestore } from '~/plugins/firestore'
 
 @Component({
   components: {
@@ -30,20 +31,13 @@ import firebase from '~/plugins/firebase'
 export default class extends Vue {
   @Getter getThreadById
   responses: Response[]
-  asyncData () {
+  async asyncData () {
     // const boardId = this.$route.params.boardId
     // const threadId = this.$route.params.threadId
     const boardId = 'e0VynIX6fezdCiYav6f0'
     const threadId = '4PkfuM9eNNjzER6uNn4z'
-    const query = firebase.firestore().collection('boards').doc(boardId).collection('threads').doc(threadId).collection('responses').orderBy('createAt')
-    return query.get()
-      .then(snapshot => {
-        const responses: Response[] = []
-        snapshot.forEach(doc => {
-          responses.push(doc.data() as Response)
-        });
-        return {responses: responses}
-      })
+    const responses: Response[] = await Firestore.getResponses(boardId, threadId)
+    return {responses: responses}
   }
   listen () {
     // const boardId = this.$route.params.boardId
