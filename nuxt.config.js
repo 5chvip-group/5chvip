@@ -23,13 +23,14 @@ module.exports = {
     baseUrl:
       process.env.BASE_URL ||
       `http://${host}:${port}`,
-      APIKEY: "",
-      AUTHDOMAIN: "",
-      DATABASEURL: "",
-      PROJECTID: "",
-      STORAGEBUCKET: "",
-      MESSAGINGSENDERID: ""
+      APIKEY: process.env.APIKEY,
+      AUTHDOMAIN: process.env.AUTHDOMAIN,
+      DATABASEURL: process.env.DATABASEURL,
+      PROJECTID: process.env.PROJECTID,
+      STORAGEBUCKET: process.env.STORAGEBUCKET,
+      MESSAGINGSENDERID: process.env.MESSAGINGSENDERID
   },
+  
   head: {
     title: "5chこぽいーを作ろう",
     meta: [
