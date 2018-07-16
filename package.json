@@ -13,6 +13,7 @@
   },
   "scripts": {
     "dev": "nuxt",
+    "heroku-postbuild": "npm run build",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
