@@ -1,13 +1,12 @@
-# プログラミングでチーム開発したい
-- https://hebi.5ch.net/test/read.cgi/news4vip/1530962450/l50
-  - １スレ目
-- https://hebi.5ch.net/test/read.cgi/news4vip/1531012153/l50
-  - ２スレ目
-
-
 # 5chvip
 
 > Nuxt.js TypeScript project
+
+
+# 開発参加について
+https://github.com/5chvip-group/5chvip/wiki/%E9%96%8B%E7%99%BA%E5%8F%82%E5%8A%A0%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6
+# 開発ガイド
+https://github.com/5chvip-group/5chvip/wiki/%E9%96%8B%E7%99%BA%E3%82%AC%E3%82%A4%E3%83%89
 
 ## Build Setup
 
@@ -27,3 +26,5 @@ $ npm run generate
 ```
 
 For detailed explanation on how things work, checkout the [Nuxt.js docs](https://github.com/nuxt/nuxt.js).
+
+
