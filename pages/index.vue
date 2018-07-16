@@ -1,9 +1,8 @@
 <template>
   <section>
     <h1 class="header">5chコピー作ろう！</h1>
-    <div class="cards">
-      <Card v-for="person in people" :key="person.id" :person="person"></Card>
-    </div>
+    <a href="boards"><img src="top_tsubo.png" alt="トップのツボ"></a>
+    画像クリックで板一覧へ
   </section>
 </template>
 
@@ -13,11 +12,9 @@ import {
   Vue
 } from "nuxt-property-decorator"
 import { State } from "vuex-class"
-import Card from "~/components/Card.vue"
 
 @Component({
   components: {
-    Card,
   }
 })
 export default class extends Vue {
@@ -26,7 +23,7 @@ export default class extends Vue {
 </script>
 <style lang="scss" scoped>
 // scssテスト
-$size: 500%;
+$size: 200%;
 .header {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana,
     sans-serif;
